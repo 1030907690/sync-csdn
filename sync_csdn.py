@@ -19,9 +19,10 @@ if __name__ == '__main__':
     print(article_divs)
     print("---------")
     for article_div in article_divs:
-        a_tag = article_div.find_element(By.XPATH,"p[@class='article-list-item-txt']/a")
-
-        print(a_tag.text)
+        article_div.find_element(By.XPATH,"div[@class=\"list-item-mp-right\"]")
+        # a_tag = article_div.find_element(By.XPATH,"p[@class='article-list-item-txt']/a")
+        print()
+        # print(a_tag.text)
 
 
     input("按任意键结束")
