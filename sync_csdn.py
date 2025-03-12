@@ -5,6 +5,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.webdriver import WebDriver
 import time
 
+article_list = []
 
 def create_driver():
     options = webdriver.ChromeOptions()
@@ -25,7 +26,7 @@ def click_visible(driver: WebDriver):
                         "/html/body/div[2]/div/div/div/div[2]/section/div/div[1]/div/section/section/main/div/div/div/div/div/div/div[1]/div/ul/li[2]/span").click()
 
 
-def article_list(driver: WebDriver):
+def get_article_list(driver: WebDriver):
     time.sleep(3)
     driver.implicitly_wait(15)
     article_divs = driver.find_elements(By.XPATH,
@@ -36,8 +37,12 @@ def article_list(driver: WebDriver):
         a_href = a_tag.get_attribute("href")
         a_text = a_tag.text
         p2 = article_div.find_element(By.XPATH, "div[@class=\"list-item-mp-right\"]/div/p[2]")
+        date = p2.text.split(" ")[0]
+        print(a_href + " " + date + " " + a_text)
 
-        print(a_href + " " + p2.text.split(" ")[0] + " " + a_text)
+        article_list.append({"href":a_href,"date":date,"title":a_text})
+        # 模拟CTRL + enter键
+        # a_tag.send_keys(Keys.CONTROL + Keys.ENTER)
         # print(a_tag.text)
 
 
@@ -53,13 +58,24 @@ def next_page(driver: WebDriver):
     return False
 
 
+
+def open_new_tag(driver: WebDriver,url:str):
+    #切换标签页
+    # driver.switch_to.window(driver.window_handles[0])
+    print("打开URL标签页:"+url)
+    driver.execute_script('window.open("'+url+'")')
+
+
 if __name__ == '__main__':
     driver = create_driver()
     start_page(driver)
     click_visible(driver)
-    article_list(driver)
-    while next_page(driver):
-        article_list(driver)
+    get_article_list(driver)
+    open_new_tag(driver,article_list[0]['href'])
+    # while next_page(driver):
+    #     article_list(driver)
+
+
 
     input("按任意键结束")
     # assert "Python" in driver.title
