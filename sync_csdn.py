@@ -4,6 +4,7 @@ from selenium.webdriver.common.by import By
 
 from selenium.webdriver.chrome.webdriver import WebDriver
 import time
+import pydirectinput
 
 article_list = []
 
@@ -66,15 +67,32 @@ def open_new_tag(driver: WebDriver,url:str):
     driver.execute_script('window.open("'+url+'")')
 
 
+def click_editor_area(driver: WebDriver):
+    editor = driver.find_element(By.XPATH,"/html/body/div[1]/div[1]/div[2]/div/div[2]/div[1]/div[@class=\"editor\"]")
+    if editor:
+        editor.click()
+    driver.implicitly_wait(15)
+    pydirectinput.keyDown("ctrl")
+    time.sleep(0.01)
+    pydirectinput.keyDown("a")
+    time.sleep(0.01)
+    pydirectinput.keyUp("ctrl")
+    time.sleep(0.01)
+    pydirectinput.keyUp("a")
+
+
+
 if __name__ == '__main__':
     driver = create_driver()
     start_page(driver)
     click_visible(driver)
     get_article_list(driver)
-    open_new_tag(driver,article_list[0]['href'])
+
     # while next_page(driver):
     #     article_list(driver)
 
+    open_new_tag(driver, article_list[0]['href'])
+    click_editor_area(driver)
 
 
     input("按任意键结束")
