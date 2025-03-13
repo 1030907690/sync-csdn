@@ -75,10 +75,9 @@ def click_editor_area(driver: WebDriver):
     pydirectinput.keyDown("ctrl")
     time.sleep(0.01)
     pydirectinput.keyDown("a")
-    time.sleep(0.01)
-    pydirectinput.keyUp("ctrl")
-    time.sleep(0.01)
+    time.sleep(1)
     pydirectinput.keyUp("a")
+    pydirectinput.keyUp("ctrl")
 
 
 
