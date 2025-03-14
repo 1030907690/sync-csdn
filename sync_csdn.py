@@ -88,23 +88,56 @@ def full_selected_copy():
 
 
 def click_editor_area(driver: WebDriver, article):
+    driver.implicitly_wait(15)
     if article['href'].find("/md/") >= 0:
         editor = driver.find_element(By.XPATH,
                                      "/html/body/div[1]/div[1]/div[2]/div/div[2]/div[1]/div[@class=\"editor\"]")
         if editor:
             editor.click()
 
-        driver.implicitly_wait(15)
+        time.sleep(2)
         full_selected_copy()
 
 
 def copy_to_md(article):
-    content = pyperclip.paste()
-    with open(article['date'] + "-" + article['title'] + '.md', 'w', encoding='UTF-8') as file:
+    content = posts_template(article['title']) + pyperclip.paste()
+    md_file_name = article['date'] + "-" + article['title']
+    with open(special_char_replace(md_file_name) + '.md', 'w', encoding='UTF-8') as file:
         file.write(content)
 
 
+def posts_template(title: str):
+    content_header = ["---" + "\n"
+        , "layout:\t\t\t\t\tpost" + "\n"
+        , "title:\t\t\t\t\t\"" + title + "\"\n"
+        , "author:\t\t\t\t\tZhou Zhongqing" + "\n"
+        , "header-style:\t\t\t\ttext"+ "\n"
+        , "catalog:\t\t\t\t\ttrue"+ "\n"
+        , "tags:" + "\n"
+        , "\t\t- Web" + "\n"
+        , "\t\t- JavaScript" + "\n"
+        , "---" + "\n"
+                      ]
+    return ''.join(content_header)
+
+
+def special_char_replace(name: str):
+    name_str = name
+    special_chars = '/,\\,:,*,?,",<,>,|'.split(',')
+    special_chars_name = ['斜杠', '反斜杠', '冒号', '星号', '问号', '引号', '小于号', '大于号', '竖杠号']
+    for i, special_char in enumerate(special_chars):
+        name_str = name_str.replace(special_char, special_chars_name[i])
+
+    return name_str
+
+
+def  test_data():
+    article_list.append({"href": "https://editor.csdn.net/md/?articleId=139380339", "date": "2024-06-01",
+                         "title": "nuxt创建项目失败，Error: Failed to download template from registry: Failed to download https:\\//raw.githubus"})
+
+
 if __name__ == '__main__':
+
     driver = create_driver()
     start_page(driver)
     click_visible(driver)
@@ -120,3 +153,4 @@ if __name__ == '__main__':
 
     input("按任意键结束")
     driver.close()
+
