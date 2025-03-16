@@ -165,7 +165,7 @@ if __name__ == '__main__':
     # get_article_list(driver)
 
     # 0 是第一页，以此类推
-    page: int = 3
+    page: int = 1
     for i in range(0, page):
         next_page(driver)
         if i == (page-1):
