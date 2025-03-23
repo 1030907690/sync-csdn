@@ -8,7 +8,6 @@ tags:
 		- Web
 		- JavaScript
 ---
-
 @[TOC](目录)
 ## 前言
 - 前面已经写了[Tesseract-OCR-v5.5 jTessBoxEditor训练](https://blog.csdn.net/baidu_19473529/article/details/144111835)，训练的基本操作。有时候，我们需要把两次的训练结果合并成一个字库。
@@ -53,19 +52,19 @@ tags:
 ## 合并
 - 创建merge文件夹，把两边的box文件复制进来，执行命令。
 ![在这里插入图片描述](https://i-blog.csdnimg.cn/direct/b3cbec669b9b468b91c66e103964a959.png)
-
+- 从所有文件中提取字符。
 ```python
  unicharset_extractor addr.test.exp0.box addr2.test.exp0.box
 ```
 ![在这里插入图片描述](https://i-blog.csdnimg.cn/direct/4c4ff740a4c340e59de83d677dbd874d.png)
-- 复制font_properties与tr文件到merge文件夹。执行以下命令。
+- 生成聚字符特征文件，复制font_properties与tr文件到merge文件夹。执行以下命令。
 
 ```python
 mftraining -F font_properties -U unicharset -O added.unicharset addr.test.exp0.tr addr2.test.exp0.tr
 ```
 
 ![在这里插入图片描述](https://i-blog.csdnimg.cn/direct/112f560ae4ef43f69616046f8433da87.png)
-
+- 聚集所有 .tr 文件。
 ```python
 cntraining addr.test.exp0.tr addr2.test.exp0.tr
 
