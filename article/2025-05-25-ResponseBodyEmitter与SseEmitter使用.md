@@ -231,6 +231,8 @@ let title = ref<string>("hello")
 - [https://github.com/1030907690/response-body-emitter-web](https://github.com/1030907690/response-body-emitter-web)
 #  总结
 - ​​ResponseBodyEmitter​​适用于更灵活的流式传输​​场景，如大文件下载或兼容性要求高的实时日志。SseEmitter则是基于标准的SSE协议。
+- ResponseBodyEmitter也是可以支持SSE协议，前端使用EventSource接收，不过需要后端写更多代码，修改响应类型、发送数据格式等。
 - `ResponseBodyEmitter、SseEmitter`与 `DeferredResult、Callable`同为异步处理，不同的是 `DeferredResult、Callable`只能发送一次数据。`ResponseBodyEmitter、SseEmitter`可以多次调用`send`发送多次。
 
 - 想要了解`DeferredResult和Callable`，可以参考本人拙作 [Spring MVC(Boot) Servlet 3.0异步处理，DeferredResult和Callable](https://blog.csdn.net/baidu_19473529/article/details/123596792)、[Spring MVC(Boot) Servlet 3.0异步处理，DeferredResult和Callable（续篇）](https://blog.csdn.net/baidu_19473529/article/details/130192257)
+
