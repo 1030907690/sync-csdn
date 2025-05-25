@@ -83,6 +83,7 @@ onMounted(()=>{
 
 
 # SseEmitter
+- 在了解ResponseBodyEmitter时又发现了SseEmitter。
 ## 简介
 - `ResponseBodyEmitter`的子类，为​​Server-Sent Events（SSE）​​协议设计，基于`text/event-stream`格式实现服务器到客户端的单向推送。自带重连机制。
 
