@@ -9,9 +9,9 @@
 # 配置环境变量
 - 设置`GEMINI_API_KEY` 变量，在[https://aistudio.google.com/apikey](https://aistudio.google.com/apikey)创建key
 
-- ,要先设置代理,不配置请求时会报错 `api error: exception typeerror: fetch failed sending request`
+- 设置代理（可选，取决于您的网络）,不配置可能会报错 `api error: exception typeerror: fetch failed sending request`
 ```
-set HTTP_PROXY=http://127.0.0.1:10808  # 配置到系统环境变量也行
+set HTTP_PROXY=http://127.0.0.1:10808  # 配置到系统环境变量也行，换成自己的地址
 ```
 # 运行
 - 我用`RuoYi-Vue`项目测试一下，在当前目录运行
@@ -83,7 +83,9 @@ gemini
 
 
 
- 
+
+
+
 
 # 参考
 - [https://github.com/google-gemini/gemini-cli/issues/1549](https://github.com/google-gemini/gemini-cli/issues/1549)
