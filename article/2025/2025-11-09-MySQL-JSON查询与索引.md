@@ -95,8 +95,8 @@ alter table t_config add index phone( (cast(extras->'$.phone' as unsigned array)
 
 
 # 总结
-- 从执行计划看，虚拟列的索引执行计划更优，但利用多值索引的`json_contains`查询方式就不需要转换SQL。虚拟列暂未找到查询数组的方式。
-
+- 从执行计划看，虚拟列的索引执行计划更优，但利用多值索引的`json_contains`查询方式就不需要转换SQL。
+- 数组列：虚拟列暂未找到查询数组的方式。多值索引要先创建才能查到数据。
 
 # 参考
 - [https://cloud.tencent.com/developer/article/1843199](https://cloud.tencent.com/developer/article/1843199)
