@@ -105,6 +105,24 @@ WantedBy=multi-user.target
 sudo systemctl start kibana
 ```
 
+- 另外，你的kibana可能需要外网访问，为了安全要设置访问帐号密码。可以借助`nginx`（Flink同理）。
+```shell
+# 安装工具 Ubuntu系统
+sudo apt-get install apache2-utils
+```
+- 生成帐号密码
+```
+htpasswd -c /etc/nginx/.htpasswd zzq
+```
+
+- nginx配置
+```shell
+location / {
+    ...省略...
+    auth_basic "Restricted";
+    auth_basic_user_file /etc/nginx/.htpasswd;
+   }
+```
 ## MySQL 初始化表和数据
 ```sql
 CREATE TABLE `t_user` (
