@@ -2,9 +2,10 @@
 # 前言
 - Flink CDC (Change Data Capture) 是一个基于 Apache Flink 的开源实时数据集成框架，它能从主流数据库（如 MySQL, PostgreSQL, Oracle等）实时捕获数据变更（增/删/改），并将这些变化转化为流数据，构建低延迟、高吞吐的数据管道、实时同步、数据仓库入湖等场景。支持全量或增量同步。
 
-- Flink CDC同步有两种方式（本文使用Flink SQL）：
+- Flink CDC同步有三种方式（本文使用Flink SQL）：
 	- 方式一、编写代码引入驱动包（Flink DataStream/Table API）,灵活定制，适用于复杂业务。
 	- 方式二、使用Flink SQL，极简搭建，适用于简单业务。
+	- 方式三、使用[flink-cdc](https://github.com/apache/flink-cdc)，目前仅适用于单表（不能组宽表）。
 
 - 早期我使用Flink 2.1.1版本，发现缺少一些Jar包，所以退到了1.20.3版。
 # 准备
