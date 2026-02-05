@@ -43,7 +43,7 @@ conda activate gamed
 - 现在就有python 3.10.13的环境了
 
 
-- 如果解决不了请看第二个方案：[安装scrcpy-client模块av模块异常，环境问题解决方案重制版](https://sample.blog.csdn.net/article/details/157615265) 
+- 如果解决不了请看第二个方案：[安装scrcpy-client模块av模块异常，环境问题解决方案二](https://sample.blog.csdn.net/article/details/157615265) 
 
 
 
