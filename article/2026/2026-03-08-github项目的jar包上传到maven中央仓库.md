@@ -251,7 +251,7 @@ gpg --keyserver keyserver.ubuntu.com --send-keys 你的KeyID
 
 
 # 其他
-- 如果你有两台电脑，都想使用同一个密钥，可以使用`Kleopatra`先导出私钥，然后另一台电脑再导入即可使用。
+- 如果你有两台电脑，都想使用同一个密钥，可以使用`Kleopatra`先备份私钥，然后另一台电脑再导入即可使用。
 
 
 # 参考
