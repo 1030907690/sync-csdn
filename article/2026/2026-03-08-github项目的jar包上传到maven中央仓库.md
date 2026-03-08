@@ -49,7 +49,7 @@ gpg --full-generate-key
 #先查看 ID
 gpg --list-keys --keyid-format LONG
 ```
-- 上传到公钥服务器( Key ID是 `rsa4096/` 后面的字符)
+- 上传到公钥服务器( Key ID是 `rsa4096/` 后面16个字符)
 ```shell
 gpg --keyserver keyserver.ubuntu.com --send-keys 你的KeyID
 ```
