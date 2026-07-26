@@ -109,7 +109,7 @@ superset mcp run --host 0.0.0.0 --port 5008
 
 
 # MCP 使用
-- 我使用的是qwen调用MCP, 可用告诉qwen要新增MCP。它会自己配置。
+- 我使用的是qwen调用MCP, 可以告诉qwen要新增MCP。它会自己配置（大部分工具配上大模型都有这种功能）。
 ```
 {
   "mcpServers": {
