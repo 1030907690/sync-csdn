@@ -20,6 +20,8 @@ sudo apt install mysql-shell
 
 
 
+- 选择的版本尽量和 MySQL 服务端版本接近，版本差距过大容易出现兼容性报错。
+
 # 备份库
 - 先登陆 
 ```bash
