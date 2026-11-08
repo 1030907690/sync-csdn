@@ -82,5 +82,6 @@ restart-strategy:
 # 参考
 - [https://nightlies.apache.org/flink/flink-docs-release-1.20/zh/docs/ops/state/state_backends/](https://nightlies.apache.org/flink/flink-docs-release-1.20/zh/docs/ops/state/state_backends/)
 - [https://nightlies.apache.org/flink/flink-docs-release-1.20/zh/docs/ops/state/checkpoints/](https://nightlies.apache.org/flink/flink-docs-release-1.20/zh/docs/ops/state/checkpoints/)
+- [https://nightlies.apache.org/flink/flink-docs-release-1.20/zh/docs/dev/table/sqlclient/](https://nightlies.apache.org/flink/flink-docs-release-1.20/zh/docs/dev/table/sqlclient/)
 - 豆包
 - deepseek-v4-pro
