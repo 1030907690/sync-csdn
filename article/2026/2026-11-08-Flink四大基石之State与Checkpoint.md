@@ -21,7 +21,14 @@ state:
 - 重启后就能看到使用了`Managed Memory`。
 ![在这里插入图片描述](https://i-blog.csdnimg.cn/direct/e5b456e0e5a84d158945994a5a31639d.png)
 
-- 关于`Managed Memory`配置请参考拙作：[Flink SQL Job内存溢出](https://sample.blog.csdn.net/article/details/161567604)
+- 关于`Managed Memory`配置如下(二选一)：
+```
+# 下面的配置二选一
+taskmanager.memory.managed.size: 256mb
+taskmanager.memory.managed.fraction: 0.1
+
+```
+
 
 # Checkpoint
 - 在`conf/config.yaml`增加以下配置。
@@ -73,9 +80,7 @@ restart-strategy:
 
 
 # 参考
-- [https://nightlies.apache.org/flink/flink-docs-release-1.20/zh/docs/ops/state/checkpoints/](https://nightlies.apache.org/flink/flink-docs-release-1.20/zh/docs/ops/state/checkpoints/)
-- [https://nightlies.apache.org/flink/flink-docs-release-1.20/zh/docs/ops/state/checkpoints_vs_savepoints/](https://nightlies.apache.org/flink/flink-docs-release-1.20/zh/docs/ops/state/checkpoints_vs_savepoints/)
 - [https://nightlies.apache.org/flink/flink-docs-release-1.20/zh/docs/ops/state/state_backends/](https://nightlies.apache.org/flink/flink-docs-release-1.20/zh/docs/ops/state/state_backends/)
-- [https://nightlies.apache.org/flink/flink-docs-release-1.20/zh/docs/dev/table/sqlclient/](https://nightlies.apache.org/flink/flink-docs-release-1.20/zh/docs/dev/table/sqlclient/)
+- [https://nightlies.apache.org/flink/flink-docs-release-1.20/zh/docs/ops/state/checkpoints/](https://nightlies.apache.org/flink/flink-docs-release-1.20/zh/docs/ops/state/checkpoints/)
 - 豆包
 - deepseek-v4-pro
